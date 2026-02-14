@@ -1,0 +1,91 @@
+name: Validate Pack Submission
+
+on:
+  pull_request:
+    paths:
+      - 'registry.json'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Validate JSON
+        run: |
+          # Check if registry.json is valid JSON
+          if ! jq empty registry.json 2>/dev/null; then
+            echo "❌ Invalid JSON in registry.json"
+            exit 1
+          fi
+          echo "✅ Valid JSON"
+
+      - name: Validate Structure
+        run: |
+          # Check required fields
+          if ! jq -e '.version' registry.json > /dev/null; then
+            echo "❌ Missing 'version' field"
+            exit 1
+          fi
+
+          if ! jq -e '.packs' registry.json > /dev/null; then
+            echo "❌ Missing 'packs' field"
+            exit 1
+          fi
+
+          echo "✅ Valid structure"
+
+      - name: Validate Pack Entries
+        run: |
+          # Validate each pack has required fields
+          jq -r '.packs | to_entries[] | .key' registry.json | while read pack_id; do
+            echo "Validating $pack_id..."
+
+            # Check required fields
+            for field in id name version extensions url; do
+              if ! jq -e ".packs[\"$pack_id\"].$field" registry.json > /dev/null; then
+                echo "❌ Pack $pack_id missing required field: $field"
+                exit 1
+              fi
+            done
+          done
+
+          echo "✅ All packs valid"
+
+      - name: Check Pack Size
+        run: |
+          # Ensure no pack exceeds 100MB
+          jq -r '.packs | to_entries[] | select(.value.size > 104857600) | .key' registry.json | while read pack_id; do
+            size=$(jq -r ".packs[\"$pack_id\"].size" registry.json)
+            size_mb=$((size / 1024 / 1024))
+            echo "❌ Pack $pack_id exceeds 100MB limit ($size_mb MB)"
+            exit 1
+          done
+
+          echo "✅ All packs within size limit"
+
+      - name: Verify URLs
+        run: |
+          # Check that all pack URLs are valid GitHub release URLs
+          jq -r '.packs | to_entries[] | .value.url' registry.json | while read url; do
+            if [[ ! "$url" =~ ^https://github\.com/ext-pack/registry/releases/download/ ]]; then
+              echo "❌ Invalid URL (must be GitHub release): $url"
+              exit 1
+            fi
+          done
+
+          echo "✅ All URLs valid"
+
+      - name: Auto-merge if valid
+        if: success()
+        uses: pascalgn/automerge-action@v0.15.6
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          MERGE_LABELS: ""
+          MERGE_METHOD: "squash"
+          MERGE_COMMIT_MESSAGE: "pull-request-title"
+          UPDATE_LABELS: ""
