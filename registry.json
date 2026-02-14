@@ -1,5 +1,27 @@
 {
   "version": "1.0",
-  "updated": "2026-02-15T00:00:00Z",
-  "packs": {}
+  "updated": "2026-02-14T23:35:58.629Z",
+  "packs": {
+    "test-pack": {
+      "id": "test-pack",
+      "name": "test-pack",
+      "description": "A test pack for testing the registry",
+      "author": {
+        "name": "Test Author",
+        "github": "IFAKA"
+      },
+      "version": "1.0.0",
+      "extensions": 1,
+      "size": 152,
+      "tags": [
+        "test",
+        "development"
+      ],
+      "created": "2026-02-14",
+      "updated": "2026-02-14T23:35:56.114Z",
+      "downloads": 0,
+      "stars": 0,
+      "url": "https://github.com/IFAKA/ext-pack-registry/releases/download/test-pack-v1.0.0/test-pack.extpack"
+    }
+  }
 }
