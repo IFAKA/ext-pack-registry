@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "updated": "2026-02-14T23:36:38.663Z",
+  "updated": "2026-02-14T23:37:56.393Z",
   "packs": {
     "test-pack": {
       "id": "test-pack",
@@ -18,7 +18,7 @@
         "development"
       ],
       "created": "2026-02-14",
-      "updated": "2026-02-14T23:36:36.361Z",
+      "updated": "2026-02-14T23:37:50.285Z",
       "downloads": 0,
       "stars": 0,
       "url": "https://github.com/IFAKA/ext-pack-registry/releases/download/test-pack-v1.0.0/test-pack.extpack"
