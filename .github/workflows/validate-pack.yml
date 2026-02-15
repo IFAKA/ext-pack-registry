@@ -72,7 +72,7 @@ jobs:
         run: |
           # Check that all pack URLs are valid GitHub release URLs
           jq -r '.packs | to_entries[] | .value.url' registry.json | while read url; do
-            if [[ ! "$url" =~ ^https://github\.com/ext-pack/registry/releases/download/ ]]; then
+            if [[ ! "$url" =~ ^https://github\.com/IFAKA/ext-pack-registry/releases/download/ ]]; then
               echo "❌ Invalid URL (must be GitHub release): $url"
               exit 1
             fi
