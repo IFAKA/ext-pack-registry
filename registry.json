@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "updated": "2026-02-14T23:37:56.393Z",
+  "updated": "2026-02-15T01:12:43.543Z",
   "packs": {
     "test-pack": {
       "id": "test-pack",
@@ -22,6 +22,22 @@
       "downloads": 0,
       "stars": 0,
       "url": "https://github.com/IFAKA/ext-pack-registry/releases/download/test-pack-v1.0.0/test-pack.extpack"
+    },
+    "IFAKA/browser-extensions": {
+      "id": "IFAKA/browser-extensions",
+      "name": "browser-extensions",
+      "description": "5 useful browser extensions",
+      "author": "IFAKA",
+      "authorGithub": "IFAKA",
+      "version": "1.0.0",
+      "extensions": 5,
+      "size": 0,
+      "tags": [],
+      "created": "2026-02-15",
+      "updated": "2026-02-15T01:12:39.263Z",
+      "downloads": 0,
+      "stars": 0,
+      "url": "https://github.com/IFAKA/ext-pack-registry/releases/download/IFAKA/browser-extensions-v1.0.0/IFAKA.browser-extensions.extpack"
     }
   }
 }
