@@ -1,5 +1,25 @@
 {
   "version": "1.0",
-  "updated": "2026-02-15T03:00:00.000Z",
-  "packs": {}
+  "updated": "2026-02-15T02:35:23.049Z",
+  "packs": {
+    "IFAKA/intentional-browsing": {
+      "id": "IFAKA/intentional-browsing",
+      "name": "intentional-browsing",
+      "description": "4 browser extensions",
+      "author": "Facundo Arenas",
+      "authorGithub": "IFAKA",
+      "version": "1.0.0",
+      "extensions": 4,
+      "size": 96888,
+      "tags": [
+        "productivity",
+        "privacy"
+      ],
+      "created": "2026-02-15",
+      "updated": "2026-02-15T02:35:20.560Z",
+      "downloads": 0,
+      "stars": 0,
+      "url": "https://github.com/IFAKA/ext-pack-registry/releases/download/IFAKA/intentional-browsing-v1.0.0/IFAKA.intentional-browsing.extpack"
+    }
+  }
 }
