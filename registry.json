@@ -1,25 +1,5 @@
 {
   "version": "1.0",
-  "updated": "2026-02-15T02:11:25.135Z",
-  "packs": {
-    "IFAKA/test-pack-e2e": {
-      "id": "IFAKA/test-pack-e2e",
-      "name": "test-pack-e2e",
-      "description": "End-to-end test pack with AI features verified",
-      "author": "Test User",
-      "authorGithub": "IFAKA",
-      "version": "1.0.0",
-      "extensions": 2,
-      "size": 336,
-      "tags": [
-        "test",
-        "development"
-      ],
-      "created": "2026-02-15",
-      "updated": "2026-02-15T02:11:22.689Z",
-      "downloads": 0,
-      "stars": 0,
-      "url": "https://github.com/IFAKA/ext-pack-registry/releases/download/IFAKA/test-pack-e2e-v1.0.0/IFAKA.test-pack-e2e.extpack"
-    }
-  }
+  "updated": "2026-02-15T03:00:00.000Z",
+  "packs": {}
 }
