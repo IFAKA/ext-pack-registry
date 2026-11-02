@@ -90,3 +90,11 @@ Want to help maintain the registry? See [CONTRIBUTING.md](CONTRIBUTING.md)
 
 Registry data: CC0 (Public Domain)
 Individual packs: See respective pack licenses
+
+---
+
+## Support
+
+If this project is useful to you, you can support my work:
+
+[![Support me on Ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/zfaka)
